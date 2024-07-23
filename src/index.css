@@ -95,31 +95,49 @@ main {
   background-size: cover;
 }
 
-h1{
-  font-family:"Gilroy-900";
+h1 {
+  font-family: "Gilroy-900";
 }
-h2{
+h2 {
   font-family: "Gilroy-700";
 }
-h4{
+h4 {
   font-family: "Gilroy-500";
 }
 
-.how-to-earn{
+.how-to-earn {
   flex: 1;
 }
-.balance{
+.balance {
   flex: 2.5;
 }
-.main-menu{
+.main-menu {
   flex: 9;
 }
 
 @media screen and (max-height: 670px) {
-  .main-menu{
-    flex: 10
+  .main-menu {
+    flex: 10;
   }
-  .balance{
-    flex: 2
+  .balance {
+    flex: 2;
   }
+}
+
+.locked-lottery {
+  backdrop-filter: blur(6.3px);
+}
+
+.lock-icon {
+  background:
+    radial-gradient(
+        315.18% 315.18% at -124.11% -101.79%,
+        #2e2e2e 19%,
+        #151515 77.71%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    #2e2e2e;
+  box-shadow:
+    -10px -6px 21px rgba(84, 84, 84, 0.52),
+    6px 5px 42px rgba(53, 54, 54, 0.36);
 }

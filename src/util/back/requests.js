@@ -53,10 +53,10 @@ export const getUserInfo = async (token) => {
     ],
     balance: 100,
     lottery: [
-      { status: "locked", name: "Lottery 01", prize: 1480 },
-      { status: "open", name: "Lottery 02", prize: 2200 },
-      { status: "locked", name: "Lottery 03", prize: 2400 },
-      { status: "open", name: "Lottery 04", prize: 2800 },
+      { status: "locked", name: "Lottery 01", prize: 1480, price: 10 },
+      { status: "open", name: "Lottery 02", prize: 2200, price: 20 },
+      { status: "locked", name: "Lottery 03", prize: 2400, price: 30 },
+      { status: "open", name: "Lottery 04", prize: 2800, price: 40 },
     ],
     url: "t.me/dsdasdasdasdsdssdsdssddddddddddddddddddddddddddddddd",
   };
