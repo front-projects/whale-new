@@ -18,15 +18,16 @@ export default function Lottery() {
       opacity: 1,
       duration: 0.4,
     });
-    const timeline = gsap.timeline({ defaults: { duration: 0.2 } });
-    timeline
-      .fromTo(".main-menu", { rotate: 0 }, { rotate: "6deg" })
-      .to(".main-menu", { rotate: "-6deg" })
-      .to(".main-menu", { rotate: "0deg" });
+    gsap.to(".main-menu", { translateX: 0, duration: 0.5 });
+    // const timeline = gsap.timeline({ defaults: { duration: 0.2 } });
+    // timeline
+    //   .fromTo(".main-menu", { rotate: 0 }, { rotate: "6deg" })
+    //   .to(".main-menu", { rotate: "-6deg" })
+    //   .to(".main-menu", { rotate: "0deg" });
     return () => {
       howAnim.kill();
       balanceAnim.kill();
-      timeline.kill();
+      // timeline.kill();
     };
   }, []);
 

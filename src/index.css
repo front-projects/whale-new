@@ -117,7 +117,7 @@ h4 {
 }
 .main-menu {
   flex: 9;
-  
+  transform: translateX(30vw);
 }
 #history-section{
   transform: translateX(-100vw);

@@ -8,12 +8,12 @@ export default function BackgroundCard() {
         <img
           src="/right-bg.png"
           alt=""
-          className="absolute right-0 bottom-0 h-1/2 z-1"
+          className="absolute right-0 bottom-0 h-1/2 z-1 rounded-b-[27px]"
         />
         <img
           src="/left-bg.png"
           alt=""
-          className="absolute left-0 bottom-0 h-1/2 z-1"
+          className="absolute left-0 bottom-0 h-1/2 z-1 rounded-b-[27px]"
         />
       </div>
     </div>
