@@ -5,11 +5,12 @@ import gsap from "gsap";
 export default function BackgroundLottery() {
   useEffect(() => {
     // const timeline = gsap.timeline({ defaults: { duration: 0.3 } });
-    gsap.to(".card-for-bg", {
+    const anim = gsap.to(".card-for-bg", {
       translateX: 0,
       stagger: { amount: 0.3, from: "back" },
       delay: 0.3,
     });
+    return () => anim.kill();
   }, []);
 
   return (

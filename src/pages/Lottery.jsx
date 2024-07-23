@@ -18,7 +18,7 @@ export default function Lottery() {
       opacity: 1,
       duration: 0.4,
     });
-    gsap.to(".main-menu", { translateX: 0, duration: 0.5 });
+    const mainAnim = gsap.to(".main-menu", { translateX: 0, duration: 0.5 });
     // const timeline = gsap.timeline({ defaults: { duration: 0.2 } });
     // timeline
     //   .fromTo(".main-menu", { rotate: 0 }, { rotate: "6deg" })
@@ -27,6 +27,7 @@ export default function Lottery() {
     return () => {
       howAnim.kill();
       balanceAnim.kill();
+      mainAnim.kill();
       // timeline.kill();
     };
   }, []);
