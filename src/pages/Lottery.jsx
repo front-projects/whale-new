@@ -12,13 +12,19 @@ export default function Lottery() {
       translateY: 0,
       opacity: 1,
       duration: 0.4,
+      force3D: true,
     });
     const balanceAnim = gsap.to(".balance", {
       translateY: 0,
       opacity: 1,
       duration: 0.4,
+      force3D: true,
     });
-    const mainAnim = gsap.to(".main-menu", { translateX: 0, duration: 0.5 });
+    const mainAnim = gsap.to(".main-menu", {
+      translateX: 0,
+      duration: 0.5,
+      force3D: true,
+    });
     return () => {
       howAnim.kill();
       balanceAnim.kill();

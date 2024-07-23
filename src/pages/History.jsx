@@ -6,7 +6,11 @@ import gsap from "gsap";
 export default function History() {
   const transactions = useSelector((state) => state.user.info.transactions);
   useEffect(() => {
-    const anim = gsap.to("#history-section", { opacity: 1, translateX: "0" });
+    const anim = gsap.to("#history-section", {
+      opacity: 1,
+      translateX: "0",
+      force3D: true,
+    });
     return () => anim.kill();
   }, []);
 

@@ -9,6 +9,7 @@ export default function BackgroundLottery() {
       translateX: 0,
       stagger: { amount: 0.3, from: "back" },
       delay: 0.3,
+      force3D: true,
     });
     return () => anim.kill();
   }, []);
