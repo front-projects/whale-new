@@ -3,13 +3,17 @@ import { useState } from "react";
 import Button from "../UI/Button";
 import { LockIcon } from "../UI/icons";
 import Modal from "../UI/Modal";
+import ConfettiExplosion from "react-confetti-explosion";
 import { BeatLoader } from "react-spinners";
 
 import { useSelector } from "react-redux";
+
 import { buyLottery } from "../../util/back/requests";
+import WebApp from "@twa-dev/sdk";
 
 export default function LockedLottery({ lottery }) {
   const [isOpen, setIsOpen] = useState();
+  const [isExploding, setIsExploding] = useState(false);
   const [isLoading, setIsLoading] = useState();
   const [isError, setIsError] = useState();
   const [isSubmited, setIsSubmited] = useState();
@@ -26,6 +30,8 @@ export default function LockedLottery({ lottery }) {
     setIsLoading(false);
     if (response) {
       setIsSubmited(true);
+      setIsExploding(true);
+      WebApp.HapticFeedback.notificationOccurred("success");
     } else {
       setIsError(true);
     }
@@ -44,7 +50,12 @@ export default function LockedLottery({ lottery }) {
           <LockIcon />
         </div>
       </div>
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+
+      <Modal
+        isExploding={isExploding}
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+      >
         {unavailible ? (
           <div className="flex flex-col items-center gap-4">
             <div className="text-center">

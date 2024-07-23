@@ -4,7 +4,6 @@ import Balance from "../components/Lottery/Balance";
 import HowToEarn from "../components/Lottery/HowToEarn";
 import Main from "../components/Lottery/Main";
 
-// import ConfettiExplosion from "react-confetti-explosion";
 export default function Lottery() {
   // const [isExploding, setIsExploding] = useState(false);
   return (
