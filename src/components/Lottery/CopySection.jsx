@@ -2,6 +2,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import { CopyIcon } from "../UI/icons";
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import WebApp from "@twa-dev/sdk";
 
 export default function CopySection() {
   const [copied, setCopied] = useState(false);
@@ -15,7 +16,10 @@ export default function CopySection() {
       <CopyToClipboard text={url}>
         <div
           className="w-full bg-white rounded-[27px] flex items-center justify-between"
-          onClick={() => setCopied(true)}
+          onClick={() => {
+            WebApp.HapticFeedback.impactOccurred("medium");
+            setCopied(true);
+          }}
         >
           <div className="copy text-[10px] p-2 py-3 max-w-[70%]">{url}</div>
 
