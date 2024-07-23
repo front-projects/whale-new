@@ -16,15 +16,15 @@ export default function Main() {
   const swiperRef = useRef(null);
 
   const handlePrev = () => {
-    WebApp.HapticFeedback.selectionChanged();
     if (swiperRef.current && swiperRef.current.swiper) {
+      WebApp.HapticFeedback.impactOccurred("medium");
       swiperRef.current.swiper.slidePrev();
     }
   };
 
   const handleNext = () => {
-    WebApp.HapticFeedback.selectionChanged();
     if (swiperRef.current && swiperRef.current.swiper) {
+      WebApp.HapticFeedback.impactOccurred("medium");
       swiperRef.current.swiper.slideNext();
     }
   };
@@ -43,7 +43,7 @@ export default function Main() {
           rewind={true}
           ref={swiperRef}
           effect="creative"
-          speed={900}
+          speed={700}
           modules={[EffectCreative]}
           creativeEffect={{
             prev: {
