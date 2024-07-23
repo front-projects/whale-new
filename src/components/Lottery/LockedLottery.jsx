@@ -10,7 +10,7 @@ export default function LockedLottery({ lottery }) {
       <div className="h-1/2 rounded-[23px] border-2 border-white border-t-[0px] bg-[#0F15119E] pt-2 w-full locked-lottery flex items-center justify-center px-6">
         <Button>BUY {lottery.price} $</Button>
       </div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[50%] lock-icon w-[100px] h-[100px] max-h-660:w-[70px] max-h-660:h-[70px] flex items-center justify-center">
+      <div className="z-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[50%] lock-icon w-[100px] h-[100px] max-h-660:w-[70px] max-h-660:h-[70px] flex items-center justify-center">
         <LockIcon />
       </div>
     </div>
