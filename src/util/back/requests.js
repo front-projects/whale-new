@@ -1,41 +1,83 @@
-import axios from "axios";
+// import axios from "axios";
 
-const URL = "https://whalefederation.tech:6028/";
+// const URL = "https://whalefederation.tech:6028/";
 // const URL = "http://localhost:6028/";
 // export const PAYMENT_URL = "https://checkout.whalefederation.tech";
-export const PAYMENT_URL = "https://crypto-payment-psi.vercel.app/";
+// export const PAYMENT_URL = "https://crypto-payment-psi.vercel.app/";
 
-export const getToken = async ({ login, password }) => {
-  // const authHeader = "Basic " + btoa(`${login}:${password}`);
+// export const getToken = async ({ login, password }) => {
+//   const authHeader = "Basic " + btoa(`${login}:${password}`);
 
-  // try {
-  //   const response = await axios.post(
-  //     URL + "api/auth/token",
-  //     {},
-  //     {
-  //       headers: {
-  //         Authorization: authHeader,
-  //       },
-  //     },
-  //   );
-  //   return response.data;
-  // } catch (error) {
-  //   throw new Error(error);
-  // }
+//   try {
+//     const response = await axios.post(
+//       URL + "api/auth/token",
+//       {},
+//       {
+//         headers: {
+//           Authorization: authHeader,
+//         },
+//       },
+//     );
+//     return response.data;
+//   } catch (error) {
+//     throw new Error(error);
+//   }
+// };
+
+// export const getUserInfo = async (token) => {
+//   try {
+//     const response = await axios.get(URL + "api/users/by-token", {
+//       headers: {
+//         Authorization: `Bearer ${token}`,
+//       },
+//     });
+//     return response.data;
+//   } catch (error) {
+//     throw new Error(error);
+//   }
+// };
+
+// export const getTopUsers = async (token) => {
+// try {
+//   const response = await axios.get(URL + "api/users/top ", {
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//     },
+//   });
+//   return response.data;
+// } catch (error) {
+//   throw new Error(error);
+// }
+// };
+
+// export const buyLottery = async (token, lottery) => {
+// try {
+//   const response = await axios.patch(
+//     URL + "api/tables",
+//     {
+//       investModelLevel: level,
+//     },
+//     {
+//       headers: {
+//         Authorization: `Bearer ${token}`,
+//       },
+//     },
+//   );
+//   if (response.status == 200) {
+//     return true;
+//   }
+// } catch (error) {
+//   return false;
+// }
+
+// };
+
+//
+export const getToken = async () => {
   return "test";
 };
 
-export const getUserInfo = async (token) => {
-  // try {
-  //   const response = await axios.get(URL + "api/users/by-token", {
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   });
-  //   return response.data;
-  // } catch (error) {
-  //   throw new Error(error);
-  // }
+export const getUserInfo = async () => {
   return {
     transactions: [
       { name: "Name User", type: "plus", price: 100 },
@@ -62,17 +104,15 @@ export const getUserInfo = async (token) => {
   };
 };
 
-export const getTopUsers = async (token) => {
-  // try {
-  //   const response = await axios.get(URL + "api/users/top ", {
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   });
-  //   return response.data;
-  // } catch (error) {
-  //   throw new Error(error);
-  // }
+function delayedPromise() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Проміс виконано через 2 секунди");
+    }, 1500);
+  });
+}
+
+export const getTopUsers = async () => {
   return [
     { name: "Name User", price: 100 },
     { name: "Name User", price: 100 },
@@ -91,33 +131,7 @@ export const getTopUsers = async (token) => {
   ];
 };
 
-function delayedPromise() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("Проміс виконано через 2 секунди");
-    }, 1500);
-  });
-}
-
-export const buyLottery = async (token, lottery) => {
-  // try {
-  //   const response = await axios.patch(
-  //     URL + "api/tables",
-  //     {
-  //       investModelLevel: level,
-  //     },
-  //     {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     },
-  //   );
-  //   if (response.status == 200) {
-  //     return true;
-  //   }
-  // } catch (error) {
-  //   return false;
-  // }
+export const buyLottery = async () => {
   const test = await delayedPromise();
   return test;
 };

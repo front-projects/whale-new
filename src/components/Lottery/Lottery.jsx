@@ -11,7 +11,7 @@ export default function Lottery({ lottery, bg }) {
   return (
     <>
       <div className="w-full h-full relative">
-        <Progress />
+        <Progress lottery={lottery} />
         {/* TOP */}
 
         <div className="h-1/2 rounded-[23px] border-2 border-white border-b-[0px] bg-[#0F1511] flex items-center justify-center flex-col pb-8 ">
