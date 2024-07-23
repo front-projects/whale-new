@@ -5,7 +5,6 @@ import HowToEarn from "../components/Lottery/HowToEarn";
 import Main from "../components/Lottery/Main";
 
 export default function Lottery() {
-  // const [isExploding, setIsExploding] = useState(false);
   return (
     // <div>
     //   <button onClick={() => setIsExploding(true)}>Click</button>

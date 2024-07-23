@@ -18,19 +18,23 @@ export default function Modal({ onClose, isOpen, children, isExploding }) {
 
   if (!isOpen) return null;
   return ReactDOM.createPortal(
-    <div
-      className="fixed w-screen h-screen top-0 left-0 flex items-center justify-center z-10 bg-black/80"
-      onClick={() => onClose()}
-    >
-      {isExploding && <ConfettiExplosion zIndex={10} />}
+    <>
       <div
-        ref={content}
-        className="bg-[#0F1511] border-white border-2 w-[90%] rounded-[23px] px-4 py-8 text-center text-[20px]"
-        onClick={(e) => e.stopPropagation()}
+        className="fixed w-screen h-screen top-0 left-0 flex items-center justify-center z-10 bg-black/80"
+        onClick={() => onClose()}
       >
-        <div className="">{children}</div>
+        {isExploding && (
+          <ConfettiExplosion zIndex={10} height="400vh" particleSize={15} />
+        )}
+        <div
+          ref={content}
+          className="bg-[#0F1511] border-white border-2 w-[90%] rounded-[23px] px-4 py-8 text-center text-[20px]"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="">{children}</div>
+        </div>
       </div>
-    </div>,
+    </>,
     document.getElementById("modal-root"),
   );
 }

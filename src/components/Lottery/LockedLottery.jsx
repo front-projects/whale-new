@@ -3,7 +3,6 @@ import { useState } from "react";
 import Button from "../UI/Button";
 import { LockIcon } from "../UI/icons";
 import Modal from "../UI/Modal";
-import ConfettiExplosion from "react-confetti-explosion";
 import { BeatLoader } from "react-spinners";
 
 import { useSelector } from "react-redux";
