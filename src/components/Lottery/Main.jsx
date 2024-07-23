@@ -1,10 +1,14 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/effect-creative";
 import { useSelector } from "react-redux";
+
 import Lottery from "./Lottery";
 import BackgroundLottery from "./BackgroundLottery";
 import SwiperButtons from "./SwiperButtons";
 import { useRef } from "react";
+import { Navigation, EffectCreative } from "swiper/modules";
 
 export default function Main() {
   const cards = useSelector((state) => state.user.info.lottery);
@@ -35,8 +39,18 @@ export default function Main() {
           loop={true}
           rewind={true}
           ref={swiperRef}
+          effect="creative"
+          modules={[Navigation, EffectCreative]}
+          creativeEffect={{
+            prev: {
+              shadow: true,
+              translate: ["0%", 0, -1],
+            },
+            next: {
+              translate: ["100%", 0, 0],
+            },
+          }}
           slidesPerView={1}
-          navigation
           className="h-full w-full"
         >
           {cards.map((lottery, index) => (
