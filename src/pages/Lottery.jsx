@@ -1,6 +1,6 @@
 // import { useState } from "react";
 
-import { useEffect, useLayoutEffect } from "react";
+import { useLayoutEffect } from "react";
 import Balance from "../components/Lottery/Balance";
 import HowToEarn from "../components/Lottery/HowToEarn";
 import Main from "../components/Lottery/Main";
