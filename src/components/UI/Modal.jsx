@@ -24,7 +24,13 @@ export default function Modal({ onClose, isOpen, children, isExploding }) {
         onClick={() => onClose()}
       >
         {isExploding && (
-          <ConfettiExplosion zIndex={10} height="400vh" particleSize={15} />
+          <ConfettiExplosion
+            zIndex={10}
+            height="400vh"
+            particleSize={15}
+            force={0.4}
+            duration={4000}
+          />
         )}
         <div
           ref={content}
