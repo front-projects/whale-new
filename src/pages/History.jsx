@@ -18,12 +18,17 @@ export default function History() {
         id="history-section"
         className="py-4 px-[18px] w-full flex flex-col gap-[10px] overflow-y-auto mt-2"
       >
-        {transactions.map((transaction) => (
-          <HistoryItem
-            key={transaction.name + Math.random() * 100}
-            transaction={transaction}
-          />
-        ))}
+        {transactions && transactions.length !== 0 ? (
+          transactions.map((transaction) => (
+            <HistoryItem
+              key={transaction.name + Math.random() * 100}
+              transaction={transaction}
+            />
+          ))
+        ) : (
+          <div>No transactions yet.</div>
+        )}
+        {}
       </div>
     </div>
   );
