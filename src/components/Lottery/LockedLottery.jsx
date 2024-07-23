@@ -5,10 +5,12 @@ import { LockIcon } from "../UI/icons";
 import Modal from "../UI/Modal";
 import { BeatLoader } from "react-spinners";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import { buyLottery } from "../../util/back/requests";
+import { buyLottery, getUserInfo } from "../../util/back/requests";
 import WebApp from "@twa-dev/sdk";
+import { updateUser } from "../../store/user-slice";
+import ConfettiExplosion from "react-confetti-explosion";
 
 export default function LockedLottery({ lottery }) {
   const [isOpen, setIsOpen] = useState();
@@ -17,6 +19,7 @@ export default function LockedLottery({ lottery }) {
   const [isError, setIsError] = useState();
   const [isSubmited, setIsSubmited] = useState();
   const [closeLock, setCloseLock] = useState();
+  const dispatch = useDispatch();
   const balance = useSelector((state) => state.user.info.balance);
 
   const openModal = () => {
@@ -38,6 +41,12 @@ export default function LockedLottery({ lottery }) {
     }
   };
 
+  const updateLottery = async () => {
+    const user = await getUserInfo();
+    dispatch(updateUser(user));
+    setIsOpen(false);
+  };
+
   return (
     <>
       <div
@@ -57,6 +66,8 @@ export default function LockedLottery({ lottery }) {
       <Modal
         isExploding={isExploding}
         isOpen={isOpen}
+        submited={isSubmited}
+        onUpdate={() => updateLottery}
         onClose={() => setIsOpen(false)}
       >
         {unavailible ? (
@@ -96,7 +107,7 @@ export default function LockedLottery({ lottery }) {
                 )}
                 {isSubmited ? (
                   <div className="w-1/2">
-                    <Button onClick={() => setIsOpen(false)}>Ok</Button>
+                    <Button onClick={updateLottery}>Ok</Button>
                   </div>
                 ) : (
                   <button
@@ -114,6 +125,15 @@ export default function LockedLottery({ lottery }) {
           </div>
         )}
       </Modal>
+      {isExploding && (
+        <ConfettiExplosion
+          zIndex={10}
+          height="400vh"
+          particleSize={15}
+          force={0.4}
+          duration={3000}
+        />
+      )}
     </>
   );
 }

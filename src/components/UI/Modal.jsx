@@ -3,7 +3,14 @@ import { useEffect, useRef } from "react";
 import ConfettiExplosion from "react-confetti-explosion";
 import ReactDOM from "react-dom";
 
-export default function Modal({ onClose, isOpen, children, isExploding }) {
+export default function Modal({
+  onClose,
+  isOpen,
+  children,
+  isExploding,
+  onUpdate,
+  submited,
+}) {
   const content = useRef(null);
 
   useEffect(() => {
@@ -21,7 +28,13 @@ export default function Modal({ onClose, isOpen, children, isExploding }) {
     <>
       <div
         className="fixed w-screen h-screen top-0 left-0 flex items-center justify-center z-10 bg-black/80"
-        onClick={() => onClose()}
+        onClick={() => {
+          if (submited) {
+            onUpdate();
+          } else {
+            onClose();
+          }
+        }}
       >
         {isExploding && (
           <ConfettiExplosion
