@@ -1,4 +1,5 @@
 import Button from "../UI/Button";
+import { LockIcon } from "../UI/icons";
 
 export default function LockedLottery({ lottery }) {
   return (
@@ -10,7 +11,7 @@ export default function LockedLottery({ lottery }) {
         <Button>BUY {lottery.price} $</Button>
       </div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[50%] lock-icon w-[100px] h-[100px] max-h-660:w-[70px] max-h-660:h-[70px] flex items-center justify-center">
-        <img src="/lock-icon.png" />
+        <LockIcon />
       </div>
     </div>
   );
