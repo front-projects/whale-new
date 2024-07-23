@@ -1,14 +1,34 @@
 import { useState } from "react";
+
 import Button from "../UI/Button";
 import { LockIcon } from "../UI/icons";
 import Modal from "../UI/Modal";
+import { BeatLoader } from "react-spinners";
+
+import { useSelector } from "react-redux";
+import { buyLottery } from "../../util/back/requests";
 
 export default function LockedLottery({ lottery }) {
   const [isOpen, setIsOpen] = useState();
+  const [isLoading, setIsLoading] = useState();
+  const [isError, setIsError] = useState();
+  const [isSubmited, setIsSubmited] = useState();
+  const balance = useSelector((state) => state.user.info.balance);
 
-  const openModal = (e) => {
-    e.stopPropagation();
-    console.log("hi");
+  const openModal = () => {
+    setIsOpen(true);
+  };
+  const unavailible = balance < lottery.price;
+
+  const submitBuy = async () => {
+    setIsLoading(true);
+    const response = await buyLottery();
+    setIsLoading(false);
+    if (response) {
+      setIsSubmited(true);
+    } else {
+      setIsError(true);
+    }
   };
 
   return (
@@ -24,7 +44,56 @@ export default function LockedLottery({ lottery }) {
           <LockIcon />
         </div>
       </div>
-      <Modal isOpen={isOpen}>Test</Modal>
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        {unavailible ? (
+          <div className="flex flex-col items-center gap-4">
+            <div className="text-center">
+              Not enough money to buy the lottery, top up your balance
+            </div>
+            <Button className="w-1/2" onClick={() => setIsOpen(false)}>
+              Ok
+            </Button>
+          </div>
+        ) : (
+          <div className="flex flex-col gap-4">
+            {!isError && !isSubmited && (
+              <div>Do you really want to buy {lottery.name} ?</div>
+            )}
+            {isError && !isLoading && (
+              <div>Error buying a lottery, try again later</div>
+            )}
+            {isSubmited && !isLoading && !isError && (
+              <div className="text-[18px]">
+                Congratulations! You have successfully purchased - {""}
+                {lottery.name}
+              </div>
+            )}
+
+            {isLoading ? (
+              <div className="w-full flex items-center text-[20px] justify-center">
+                <BeatLoader size={20} color="#82eb67" />
+              </div>
+            ) : (
+              <div className="flex gap-2 text-[16px] justify-center">
+                {!isError && !isSubmited && (
+                  <Button onClick={submitBuy} className="w-1/2">
+                    Yes
+                  </Button>
+                )}
+                <button
+                  onClick={() => {
+                    setIsError(false);
+                    setIsOpen(false);
+                  }}
+                  className="bg-white rounded-[27px] text-[#2E2E2E] font-['Gilroy-900'] w-1/2 h-[56px]"
+                >
+                  Cancel
+                </button>
+              </div>
+            )}
+          </div>
+        )}
+      </Modal>
     </>
   );
 }
