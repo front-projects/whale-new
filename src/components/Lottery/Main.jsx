@@ -14,7 +14,6 @@ import WebApp from "@twa-dev/sdk";
 export default function Main() {
   const cards = useSelector((state) => state.user.info.lottery);
   const swiperRef = useRef(null);
-  const firstRenderRef = useRef(true);
 
   const handlePrev = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -29,11 +28,7 @@ export default function Main() {
   };
 
   const handleSlideChange = () => {
-    if (firstRenderRef.current) {
-      firstRenderRef.current = false;
-    } else {
-      WebApp.HapticFeedback.impactOccurred("medium");
-    }
+    WebApp.HapticFeedback.impactOccurred("medium");
   };
 
   return (
