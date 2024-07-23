@@ -50,7 +50,7 @@ export default function Main() {
           rewind={true}
           ref={swiperRef}
           effect="creative"
-          onSlideChange={handleSlideChange}
+          onSlideChangeTransitionEnd={handleSlideChange}
           speed={700}
           modules={[EffectCreative]}
           creativeEffect={{
