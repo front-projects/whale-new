@@ -48,7 +48,7 @@ export default function Modal({
         )}
         <div
           ref={content}
-          className={`bg-[#0F1511] border-white border-2 rounded-[23px] px-4 py-8 text-center text-[20px] ${faq ? "w-screen h-screen" : "w-[90%]"}`}
+          className={`bg-[#0F1511] px-4 py-8 text-center text-[20px] ${faq ? "w-screen h-screen" : "w-[90%]  border-white border-2 rounded-[23px]"}`}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex flex-col items-center">{children}</div>
