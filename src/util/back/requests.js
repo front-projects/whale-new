@@ -113,6 +113,7 @@ function delayedPromise() {
 }
 
 export const getTopUsers = async () => {
+  await delayedPromise();
   return [
     { name: "Name User", price: 100 },
     { name: "Name User", price: 100 },

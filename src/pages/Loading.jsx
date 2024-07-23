@@ -50,27 +50,26 @@ export default function Loading() {
 
   return (
     <>
-      <div
-        className="relative flex items-center justify-center flex-col w-screen h-screen bg-[#081117]"
+      <main
+        className="relative flex items-center justify-center flex-col w-screen h-screen bg-[#062E03]"
         id="loading-layout"
       >
-        <img src="loading-icon.png" />
         <div className="text-center w-full">
           {error ? (
-            <div className="text-red-500 px-4">
+            <div className="text-red-500 px-4 text-[24px]">
               Something went wrong. Try to reload app
             </div>
           ) : (
             <div className="text-xl w-full text-center flex flex-col items-center justify-center gap-4">
-              <p> Loading</p>
+              <p className="text-[36px] mb-4"> Loading ...</p>
               <RingLoader color="white" size={70} />
             </div>
           )}
         </div>
-      </div>
+      </main>
 
-      {/* {isReady && <FallbackNavigate to="/menu" />} */}
-      <FallbackNavigate to="/menu" />
+      {isReady && <FallbackNavigate to="/menu" />}
+      {/* <FallbackNavigate to="/menu" /> */}
     </>
   );
 }
