@@ -9,18 +9,21 @@ import BackgroundLottery from "./BackgroundLottery";
 import SwiperButtons from "./SwiperButtons";
 import { useRef } from "react";
 import { EffectCreative } from "swiper/modules";
+import WebApp from "@twa-dev/sdk";
 
 export default function Main() {
   const cards = useSelector((state) => state.user.info.lottery);
   const swiperRef = useRef(null);
 
   const handlePrev = () => {
+    WebApp.HapticFeedback.selectionChanged();
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.slidePrev();
     }
   };
 
   const handleNext = () => {
+    WebApp.HapticFeedback.selectionChanged();
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.slideNext();
     }
