@@ -52,7 +52,7 @@ export default function Main() {
             },
           }}
           slidesPerView={1}
-          className="h-full w-full"
+          className="h-full w-full rounded-[23px]"
         >
           {cards.map((lottery, index) => (
             <SwiperSlide key={Math.random() * 100 + index}>
