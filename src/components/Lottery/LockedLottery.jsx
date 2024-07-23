@@ -80,15 +80,21 @@ export default function LockedLottery({ lottery }) {
                     Yes
                   </Button>
                 )}
-                <button
-                  onClick={() => {
-                    setIsError(false);
-                    setIsOpen(false);
-                  }}
-                  className="bg-white rounded-[27px] text-[#2E2E2E] font-['Gilroy-900'] w-1/2 h-[56px]"
-                >
-                  Cancel
-                </button>
+                {isSubmited ? (
+                  <Button onClick={() => setIsOpen(false)} className="w-1/2">
+                    Ok
+                  </Button>
+                ) : (
+                  <button
+                    onClick={() => {
+                      setIsError(false);
+                      setIsOpen(false);
+                    }}
+                    className="bg-white rounded-[27px] text-[#2E2E2E] font-['Gilroy-900'] w-1/2 h-[56px]"
+                  >
+                    Cancel
+                  </button>
+                )}
               </div>
             )}
           </div>
