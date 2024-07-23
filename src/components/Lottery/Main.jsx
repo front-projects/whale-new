@@ -32,7 +32,7 @@ export default function Main() {
     if (firstRenderRef.current) {
       firstRenderRef.current = false;
     } else {
-      WebApp.HapticFeedback.impactOccurred("soft");
+      WebApp.HapticFeedback.impactOccurred("medium");
     }
   };
 
