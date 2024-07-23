@@ -86,17 +86,14 @@ export default function LockedLottery({ lottery }) {
             ) : (
               <div className="flex gap-2 text-[16px] justify-center w-full">
                 {!isError && !isSubmited && (
-                  <Button onClick={submitBuy} className="w-1/2 max-w-1/2">
-                    Yes
-                  </Button>
+                  <div className="w-1/2">
+                    <Button onClick={submitBuy}>Yes</Button>
+                  </div>
                 )}
                 {isSubmited ? (
-                  <Button
-                    onClick={() => setIsOpen(false)}
-                    className="w-1/2 max-w-1/2"
-                  >
-                    Ok
-                  </Button>
+                  <div className="w-1/2">
+                    <Button onClick={() => setIsOpen(false)}>Ok</Button>
+                  </div>
                 ) : (
                   <button
                     onClick={() => {
