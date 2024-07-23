@@ -1,0 +1,45 @@
+.history-gradient {
+  background: radial-gradient(
+      37.1% 82.68% at 0% 100%,
+      rgba(255, 255, 255, 0.42) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    rgba(255, 255, 255, 0.15);
+}
+
+.history-minus-gradient {
+  background: linear-gradient(90deg, #ffea7c 0%, #ff2f43 100%), #82eb67;
+}
+.history-plus-gradient {
+  background: linear-gradient(90deg, #ffea7c 0%, #82eb67 100%), #82eb67;
+}
+
+.history-plus-gradient,
+.history-minus-gradient {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.top-user-gradient {
+  background: linear-gradient(90deg, #ffea7c 0%, #82eb67 100%),
+    radial-gradient(
+      37.1% 82.68% at 0% 100%,
+      rgba(255, 255, 255, 0.42) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    rgba(255, 255, 255, 0.15);
+}
+
+.button-gradient {
+  background: linear-gradient(90deg, #ffea7c 0%, #82eb67 100%);
+}
+
+.copy {
+  background: linear-gradient(90deg, #2e2e2e 0%, #ffffff 86.64%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
