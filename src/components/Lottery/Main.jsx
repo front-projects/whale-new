@@ -1,6 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/navigation";
 import "swiper/css/effect-creative";
 import { useSelector } from "react-redux";
 
@@ -8,7 +7,7 @@ import Lottery from "./Lottery";
 import BackgroundLottery from "./BackgroundLottery";
 import SwiperButtons from "./SwiperButtons";
 import { useRef } from "react";
-import { Navigation, EffectCreative } from "swiper/modules";
+import { EffectCreative } from "swiper/modules";
 
 export default function Main() {
   const cards = useSelector((state) => state.user.info.lottery);
@@ -40,7 +39,8 @@ export default function Main() {
           rewind={true}
           ref={swiperRef}
           effect="creative"
-          modules={[Navigation, EffectCreative]}
+          speed={900}
+          modules={[EffectCreative]}
           creativeEffect={{
             prev: {
               // shadow: true,
