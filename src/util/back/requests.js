@@ -91,23 +91,33 @@ export const getTopUsers = async (token) => {
   ];
 };
 
-export const updateTable = async (token, level) => {
-  try {
-    const response = await axios.patch(
-      URL + "api/tables",
-      {
-        investModelLevel: level,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      },
-    );
-    if (response.status == 200) {
-      return true;
-    }
-  } catch (error) {
-    return false;
-  }
+function delayedPromise() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Проміс виконано через 2 секунди");
+    }, 1500);
+  });
+}
+
+export const buyLottery = async (token, lottery) => {
+  // try {
+  //   const response = await axios.patch(
+  //     URL + "api/tables",
+  //     {
+  //       investModelLevel: level,
+  //     },
+  //     {
+  //       headers: {
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     },
+  //   );
+  //   if (response.status == 200) {
+  //     return true;
+  //   }
+  // } catch (error) {
+  //   return false;
+  // }
+  const test = await delayedPromise();
+  return test;
 };
