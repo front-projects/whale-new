@@ -16,6 +16,7 @@ export default function LockedLottery({ lottery }) {
   const [isLoading, setIsLoading] = useState();
   const [isError, setIsError] = useState();
   const [isSubmited, setIsSubmited] = useState();
+  const [closeLock, setCloseLock] = useState();
   const balance = useSelector((state) => state.user.info.balance);
 
   const openModal = () => {
@@ -30,6 +31,7 @@ export default function LockedLottery({ lottery }) {
     if (response) {
       setIsSubmited(true);
       setIsExploding(true);
+      setCloseLock(true);
       WebApp.HapticFeedback.notificationOccurred("success");
     } else {
       setIsError(true);
@@ -38,7 +40,9 @@ export default function LockedLottery({ lottery }) {
 
   return (
     <>
-      <div className="w-full h-full top-0 absolute z-3 h-full ">
+      <div
+        className={`w-full h-full top-0 absolute z-3 h-full ${closeLock ? "invisible" : ""}`}
+      >
         <div className="h-1/2 rounded-[23px] border-2 border-white border-b-[0px] bg-[#0F1511]/95 flex items-center justify-center flex-col pb-8 text-center text-[20px] px-8 max-h-660:px-2 max-h-660:text-[12px]">
           TAKE PART IN THE LOTTERY AND MAKE A PROFIT
         </div>

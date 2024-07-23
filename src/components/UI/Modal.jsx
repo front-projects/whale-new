@@ -29,7 +29,7 @@ export default function Modal({ onClose, isOpen, children, isExploding }) {
             height="400vh"
             particleSize={15}
             force={0.4}
-            duration={4000}
+            duration={3000}
           />
         )}
         <div
