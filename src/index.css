@@ -126,6 +126,9 @@ h4 {
   transform: translateY(100px);
   opacity: 0;
 }
+.how-to-earn, .balance, .main-menu,#history-section,.top-user {
+  will-change: transform, opacity;
+}
 
 @media screen and (max-height: 670px) {
   .main-menu {
