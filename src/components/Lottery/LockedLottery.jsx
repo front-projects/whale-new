@@ -84,7 +84,7 @@ export default function LockedLottery({ lottery }) {
                 <BeatLoader size={20} color="#82eb67" />
               </div>
             ) : (
-              <div className="flex gap-2 text-[16px] justify-center">
+              <div className="flex gap-2 text-[16px] justify-center w-full">
                 {!isError && !isSubmited && (
                   <Button onClick={submitBuy} className="w-1/2">
                     Yes
