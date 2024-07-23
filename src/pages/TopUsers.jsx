@@ -6,11 +6,7 @@ import gsap from "gsap";
 export default function TopUsers() {
   const users = useSelector((state) => state.users.users);
   useEffect(() => {
-    gsap.fromTo(
-      ".top-user",
-      { y: 100, opacity: 0 },
-      { y: 0, stagger: 0.1, opacity: 1 },
-    );
+    gsap.to(".top-user", { translateY: 0, stagger: 0.1, opacity: 1 });
   }, []);
 
   return (

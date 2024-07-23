@@ -29,7 +29,9 @@ export default function HowToEarn() {
       <Modal faq isOpen={isOpen} onClose={() => setIsOpen(false)}>
         How to earn menu
         <div className="w-1/2">
-          <Button onClick={() => setIsOpen(false)}>Ok</Button>
+          <Button className="mt-6" onClick={() => setIsOpen(false)}>
+            Ok
+          </Button>
         </div>
       </Modal>
     </>
