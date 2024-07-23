@@ -12,6 +12,7 @@ export default function Lottery({ lottery, bg }) {
     <div className="w-full h-full relative">
       <Progress />
       {/* TOP */}
+
       <div className="h-1/2 rounded-[23px] border-2 border-white border-b-[0px] bg-[#0F1511] flex items-center justify-center flex-col pb-8 ">
         <h2 className="history-plus-gradient text-[20px]">{lottery.name}</h2>
         <h4 className="text-[15px]">Your participation is confirmed!</h4>
@@ -27,7 +28,7 @@ export default function Lottery({ lottery, bg }) {
         </h4>
       </div>
       {/* BOTTOM */}
-      <div className="h-1/2 rounded-[23px] border-2 border-white border-t-[0px] bg-[#0F1511] pt-2 ">
+      <div className="h-1/2 rounded-[23px] border-2 border-white border-t-[0px] bg-[#0F1511] pt-2 z-0 ">
         <img
           src="/right-bg.png"
           alt=""

@@ -12,7 +12,7 @@ export default function CopySection() {
         Invite a friend who will buy this ticket and get $9.00 instantly
       </h4>
       <div className="w-full bg-white rounded-[27px] flex items-center justify-between">
-        <div className="copy text-[10px] p-2 max-w-[70%]">{url}</div>
+        <div className="copy text-[10px] p-2 py-3 max-w-[70%]">{url}</div>
         <CopyToClipboard text={url}>
           <div
             className="button-gradient flex items-center justify-center h-full rounded-[27px] px-4 text-[10px] text-black"
