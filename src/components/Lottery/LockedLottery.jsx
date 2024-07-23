@@ -38,6 +38,7 @@ export default function LockedLottery({ lottery }) {
       WebApp.HapticFeedback.notificationOccurred("success");
     } else {
       setIsError(true);
+      WebApp.HapticFeedback.notificationOccurred("error");
     }
   };
 

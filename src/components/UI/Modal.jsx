@@ -10,6 +10,7 @@ export default function Modal({
   isExploding,
   onUpdate,
   submited,
+  faq,
 }) {
   const content = useRef(null);
 
@@ -47,10 +48,10 @@ export default function Modal({
         )}
         <div
           ref={content}
-          className="bg-[#0F1511] border-white border-2 w-[90%] rounded-[23px] px-4 py-8 text-center text-[20px]"
+          className={`bg-[#0F1511] border-white border-2 rounded-[23px] px-4 py-8 text-center text-[20px] ${faq ? "w-screen h-screen" : "w-[90%]"}`}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="">{children}</div>
+          <div className="flex flex-col items-center">{children}</div>
         </div>
       </div>
     </>,
