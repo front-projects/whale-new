@@ -43,7 +43,7 @@ export default function Main() {
           modules={[Navigation, EffectCreative]}
           creativeEffect={{
             prev: {
-              shadow: true,
+              // shadow: true,
               translate: ["0%", 0, -1],
             },
             next: {
