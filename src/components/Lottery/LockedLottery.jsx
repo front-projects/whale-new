@@ -14,22 +14,23 @@ import ConfettiExplosion from "react-confetti-explosion";
 
 export default function LockedLottery({ lottery }) {
   const [isOpen, setIsOpen] = useState();
+  const token = useSelector((state) => state.auth.token);
   const [isExploding, setIsExploding] = useState(false);
   const [isLoading, setIsLoading] = useState();
   const [isError, setIsError] = useState();
   const [isSubmited, setIsSubmited] = useState();
   const [closeLock, setCloseLock] = useState();
   const dispatch = useDispatch();
-  const balance = useSelector((state) => state.user.info.balance);
+  const balance = useSelector((state) => state.user.info.balanceAmount);
 
   const openModal = () => {
     setIsOpen(true);
   };
-  const unavailible = balance < lottery.price;
+  const unavailible = balance < lottery.priceAmount;
 
   const submitBuy = async () => {
     setIsLoading(true);
-    const response = await buyLottery();
+    const response = await buyLottery(token, lottery.investModelLevel);
     setIsLoading(false);
     if (response) {
       setIsSubmited(true);
@@ -43,7 +44,7 @@ export default function LockedLottery({ lottery }) {
   };
 
   const updateLottery = async () => {
-    const user = await getUserInfo();
+    const user = await getUserInfo(token);
     dispatch(updateUser(user));
     setIsOpen(false);
   };
@@ -57,7 +58,7 @@ export default function LockedLottery({ lottery }) {
           TAKE PART IN THE LOTTERY AND MAKE A PROFIT
         </div>
         <div className="h-1/2 rounded-[23px] border-2 border-white border-t-[0px] bg-[#0F1511]/95 pt-2 w-full  flex items-center justify-center px-6">
-          <Button onClick={openModal}>BUY {lottery.price} $</Button>
+          <Button onClick={openModal}>BUY {lottery.priceAmount} $</Button>
         </div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[50%] lock-icon w-[100px] h-[100px] max-h-660:w-[70px] max-h-660:h-[70px] flex items-center justify-center">
           <LockIcon />
@@ -91,7 +92,7 @@ export default function LockedLottery({ lottery }) {
             {isSubmited && !isLoading && !isError && (
               <div className="text-[18px]">
                 Congratulations! You have successfully purchased - {""}
-                {lottery.name}
+                {lottery.naming}
               </div>
             )}
 

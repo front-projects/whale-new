@@ -28,7 +28,6 @@ function App() {
     // console.log(WebApp);
     if (WebApp.platform !== "weba") {
       WebApp.ready();
-      console.log("Running inside Telegram Web App");
     } else {
       window.location.href = "https://telegram.org/";
     }

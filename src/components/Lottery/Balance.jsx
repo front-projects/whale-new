@@ -3,7 +3,7 @@ import Button from "../UI/Button";
 import { BalanceIcon } from "../UI/icons";
 
 export default function Balance() {
-  const balance = useSelector((state) => state.user.info.balance);
+  const balance = useSelector((state) => state.user.info.balanceAmount);
 
   return (
     <div className="balance rounded-[27px] history-gradient flex items-center justify-center w-full">

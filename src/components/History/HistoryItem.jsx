@@ -11,7 +11,7 @@ export default function HistoryItem({ transaction }) {
         className={`${transaction.type == "plus" ? "history-plus-gradient" : "history-minus-gradient"}`}
       >
         {transaction.type == "plus" ? "+" : "-"}
-        {transaction.price.toFixed(2)} $
+        {transaction.transactionAmount.toFixed(2)} $
       </div>
     </div>
   );

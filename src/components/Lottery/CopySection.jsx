@@ -6,7 +6,7 @@ import WebApp from "@twa-dev/sdk";
 
 export default function CopySection() {
   const [copied, setCopied] = useState(false);
-  const url = useSelector((state) => state.user.info.url);
+  const url = useSelector((state) => state.user.info.reflink);
 
   return (
     <div className="absolute z-2 w-full h-1/2 flex items-center justify-center flex-col px-6 max-h-660:px-2 gap-2">

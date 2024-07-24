@@ -12,7 +12,8 @@ import { EffectCreative } from "swiper/modules";
 import WebApp from "@twa-dev/sdk";
 
 export default function Main() {
-  const cards = useSelector((state) => state.user.info.lottery);
+  const cards = useSelector((state) => state.user.info.investModels);
+
   const swiperRef = useRef(null);
 
   const handlePrev = () => {

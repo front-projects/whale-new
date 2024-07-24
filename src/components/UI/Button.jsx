@@ -3,7 +3,9 @@ import WebApp from "@twa-dev/sdk";
 export default function Button({ children, onClick, className }) {
   const clickHandler = () => {
     WebApp.HapticFeedback.impactOccurred("soft");
-    onClick();
+    if (onClick) {
+      onClick();
+    }
   };
 
   return (

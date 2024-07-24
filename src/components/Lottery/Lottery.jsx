@@ -15,12 +15,17 @@ export default function Lottery({ lottery, bg }) {
         {/* TOP */}
 
         <div className="h-1/2 rounded-[23px] border-2 border-white border-b-[0px] bg-[#0F1511] flex items-center justify-center flex-col pb-8 ">
-          <h2 className="history-plus-gradient text-[20px]">{lottery.name}</h2>
+          <h2 className="history-plus-gradient text-[20px]">
+            {lottery.naming}
+          </h2>
           <h4 className="text-[15px]">Your participation is confirmed!</h4>
           <h4 className="history-plus-gradient">
             Today in the lottery:{" "}
             <span className="font-['Gilroy-900']">
-              {lottery.prize.toFixed(0)} USD
+              {lottery.totalPrizeAmount
+                ? lottery.totalPrizeAmount.toFixed(0)
+                : 0}{" "}
+              USD
             </span>
           </h4>
           <h4 className="text-[10px] mt-2 text-center px-4">
@@ -42,7 +47,9 @@ export default function Lottery({ lottery, bg }) {
           />
           <CopySection />
         </div>
-        {lottery.status == "locked" && <LockedLottery lottery={lottery} />}
+        {lottery.investModelStatus == "AVAILABLE" && (
+          <LockedLottery lottery={lottery} />
+        )}
       </div>
     </>
   );

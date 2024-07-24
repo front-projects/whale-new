@@ -7,7 +7,7 @@ export default function TopUserItem({ user }) {
         <TopUserIcon />
         <h4 className="text-[18px] ">{user.name}</h4>
       </div>
-      <h1 className="text-[25px]">{user.price.toFixed(2)}$</h1>
+      <h1 className="text-[25px]">{user.earnedAmount.toFixed(2)}$</h1>
     </div>
   );
 }
