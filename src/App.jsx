@@ -28,7 +28,7 @@ function App() {
       WebApp.ready();
       console.log("Running inside Telegram Web App");
     } else {
-      window.location.href = "https://telegram.org";
+      return alert("Works only on mobile devices");
     }
   }, []);
 
