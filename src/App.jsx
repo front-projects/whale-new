@@ -25,12 +25,12 @@ function App() {
   useEffect(() => {
     WebApp.ready();
     WebApp.expand();
-    console.log(WebApp);
+    // console.log(WebApp);
     if (WebApp.platform !== "weba") {
       WebApp.ready();
       console.log("Running inside Telegram Web App");
     } else {
-      WebApp.close();
+      window.location.href = "https://telegram.org/";
     }
   }, []);
 
