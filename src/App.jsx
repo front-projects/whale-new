@@ -24,14 +24,13 @@ function App() {
   useEffect(() => {
     WebApp.ready();
     WebApp.expand();
-    if (WebApp.isTelegramWebView) {
-      WebApp.ready();
-      // Your app's initialization code here
-      console.log("Running inside Telegram Web App");
-    } else {
-      // Redirect or display an error message
-      window.location.href = "https://telegram.org";
-    }
+    alert(WebApp.platform);
+    // if (WebApp.isTelegramWebView) {
+    //   WebApp.ready();
+    //   console.log("Running inside Telegram Web App");
+    // } else {
+    //   window.location.href = "https://telegram.org";
+    // }
   }, []);
 
   return (
