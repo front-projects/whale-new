@@ -2,7 +2,7 @@ import axios from "axios";
 
 const URL = "https://whalefederation.tech:6034/";
 // const URL = "http://localhost:6028/";
-// export const PAYMENT_URL = "https://checkout.whalefederation.tech";
+export const PAYMENT_URL = "https://checkout.whalefederation.tech";
 // export const PAYMENT_URL = "https://crypto-payment-psi.vercel.app/";
 
 export const getToken = async ({ login, password }) => {
@@ -31,6 +31,7 @@ export const getUserInfo = async (token) => {
         Authorization: `Bearer ${token}`,
       },
     });
+    console.log(response.data);
     return response.data;
   } catch (error) {
     throw new Error(error);
