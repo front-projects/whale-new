@@ -30,7 +30,7 @@ function App() {
       WebApp.ready();
       console.log("Running inside Telegram Web App");
     } else {
-      WebApp.openLink("https://telegram.org/");
+      WebApp.close();
     }
   }, []);
 
