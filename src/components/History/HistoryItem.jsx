@@ -2,15 +2,42 @@ import { DollarIcon } from "../UI/icons";
 
 export default function HistoryItem({ transaction }) {
   return (
-    <div className="rounded-[27px] history-gradient flex items-center justify-between px-4 text-[20px]">
-      <div className="flex items-center gap-[10px] py-3">
-        <DollarIcon />
-        <h4>{transaction.name}</h4>
+    <div
+      className={`rounded-[27px] history-gradient flex items-center justify-between px-4 text-[16px] ${
+        transaction.transactionType == "PURCHASE" &&
+        "shadow-[0px_4px_5.5px_0px_#C22A2A_inset]"
+      } 
+        ${
+          transaction.transactionType == "WITHDRAW" &&
+          "shadow-[0px_4px_5.5px_0px_#FF5C00_inset]"
+        }
+        ${
+          transaction.transactionType == "DEPOSIT" &&
+          "shadow-[0px_4px_5.5px_0px_#168BD8_inset]"
+        }
+        ${
+          transaction.transactionType == "INCOME" &&
+          "shadow-[0px_4px_5.5px_0px_#82EB67_inset]"
+        } `}
+    >
+      <div className="flex items-center gap-[10px] py-3 max-w-[70%] ">
+        <div>
+          <DollarIcon />
+        </div>
+        <h4 className="text-[12px]">{transaction.description}</h4>
       </div>
       <div
-        className={`${transaction.type == "plus" ? "history-plus-gradient" : "history-minus-gradient"}`}
+        className={`${
+          transaction.transactionType !== "PURCHASE" &&
+          transaction.transactionType !== "WITHDRAW"
+            ? "history-plus-gradient"
+            : "history-minus-gradient"
+        } `}
       >
-        {transaction.type == "plus" ? "+" : "-"}
+        {transaction.transactionType !== "PURCHASE" &&
+        transaction.transactionType !== "WITHDRAW"
+          ? "+"
+          : "-"}
         {transaction.transactionAmount.toFixed(2)} $
       </div>
     </div>
