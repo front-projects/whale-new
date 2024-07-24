@@ -6,13 +6,15 @@ import {
 } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Loading from "./pages/Loading";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import WebApp from "@twa-dev/sdk";
 import Lottery from "./pages/Lottery";
 import TopUsers from "./pages/TopUsers";
 import History from "./pages/History";
 
 function App() {
+  const [content, setContent] = useState();
+
   const FallbackNavigate = ({ to }) => {
     const navigate = useNavigate();
     useEffect(() => {
@@ -24,14 +26,18 @@ function App() {
   useEffect(() => {
     WebApp.ready();
     WebApp.expand();
+    console.log(WebApp);
     if (WebApp.platform !== "weba") {
       WebApp.ready();
       console.log("Running inside Telegram Web App");
     } else {
-      return alert("Works only on mobile devices");
+      setContent(<div>Works only on mobile devices</div>);
     }
   }, []);
 
+  if (content) {
+    return content;
+  }
   return (
     <Router>
       <Routes>
