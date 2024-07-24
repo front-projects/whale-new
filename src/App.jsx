@@ -3,7 +3,6 @@ import {
   Route,
   Routes,
   useNavigate,
-  Navigate,
 } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Loading from "./pages/Loading";
@@ -12,7 +11,6 @@ import WebApp from "@twa-dev/sdk";
 import Lottery from "./pages/Lottery";
 import TopUsers from "./pages/TopUsers";
 import History from "./pages/History";
-import { useSelector } from "react-redux";
 
 function App() {
   const FallbackNavigate = ({ to }) => {
@@ -22,14 +20,18 @@ function App() {
     }, [to, navigate]);
     return null;
   };
-  const user = useSelector((state) => state.user);
-  if (user.status !== "succeeded") {
-    return <Navigate to="loading" />;
-  }
 
   useEffect(() => {
     WebApp.ready();
     WebApp.expand();
+    if (WebApp.isTelegramWebView) {
+      WebApp.ready();
+      // Your app's initialization code here
+      console.log("Running inside Telegram Web App");
+    } else {
+      // Redirect or display an error message
+      window.location.href = "https://telegram.org";
+    }
   }, []);
 
   return (
