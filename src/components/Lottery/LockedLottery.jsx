@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import Button from "../UI/Button";
-import { LockIcon } from "../UI/icons";
+import { LockIcon, LostIcon } from "../UI/icons";
 import Modal from "../UI/Modal";
 import { BeatLoader } from "react-spinners";
 
@@ -17,6 +17,7 @@ export default function LockedLottery({ lottery }) {
   const token = useSelector((state) => state.auth.token);
   const [isExploding, setIsExploding] = useState(false);
   const [isLoading, setIsLoading] = useState();
+  const [profitModal, setProfitModal] = useState();
   const [isError, setIsError] = useState();
   const [isSubmited, setIsSubmited] = useState();
   const [closeLock, setCloseLock] = useState();
@@ -61,9 +62,24 @@ export default function LockedLottery({ lottery }) {
           <Button onClick={openModal}>BUY {lottery.priceAmount} $</Button>
         </div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[50%] lock-icon w-[100px] h-[100px] max-h-660:w-[70px] max-h-660:h-[70px] flex items-center justify-center">
-          <LockIcon />
+          {lottery.lostRefIncomeAmount > 0 ? (
+            <div onClick={() => setProfitModal(true)} className="ml-1">
+              <LostIcon />
+            </div>
+          ) : (
+            <LockIcon />
+          )}
         </div>
       </div>
+      <Modal isOpen={profitModal} onClose={() => setProfitModal(false)}>
+        <div className="w-full">
+          You're missing out - {lottery.lostRefIncomeAmount.toFixed(2)} $. By
+          referral system. Buy a lottery to get profit.
+          <Button className="w-1/2 mt-4" onClick={() => setProfitModal(false)}>
+            Ok
+          </Button>
+        </div>
+      </Modal>
 
       <Modal
         isExploding={isExploding}

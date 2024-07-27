@@ -11,7 +11,7 @@ export default function Progress({ lottery }) {
           </div>
         </div>
       </div> */}
-      {lottery.status !== "locked" && (
+      {lottery.investModelStatus !== "AVAILABLE" && (
         <BounceLoader color="#82EB67" size={40} />
       )}
     </div>
