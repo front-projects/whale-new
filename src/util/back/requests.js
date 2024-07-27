@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const URL = "https://whalefederation.tech:6034/";
+const URL = "https://utilitywhalefederation.site:6034/";
 // const URL = "http://localhost:6028/";
-export const PAYMENT_URL = "https://checkout.whalefederation.tech";
-// export const PAYMENT_URL = "https://crypto-payment-psi.vercel.app/";
+// export const PAYMENT_URL = "https://checkout.utilitywhalefederation.site";
+export const PAYMENT_URL = "https://lottery-payment.vercel.app/";
 
 export const getToken = async ({ login, password }) => {
   const authHeader = "Basic " + btoa(`${login}:${password}`);
