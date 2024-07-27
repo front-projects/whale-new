@@ -11,7 +11,7 @@ export default function CopySection() {
   return (
     <div className="absolute z-2 w-full h-1/2 flex items-center justify-center flex-col px-6 max-h-660:px-2 gap-2">
       <h4 className="text-[15px] text-center max-h-660:text-[12px]">
-        Invite a friend who will buy this ticket and get $9.00 instantly
+        Invite a friend who will buy this ticket and get 60% of the ticket price
       </h4>
       <CopyToClipboard text={url}>
         <div
