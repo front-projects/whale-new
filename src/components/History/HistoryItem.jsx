@@ -15,7 +15,7 @@ export default function HistoryItem({ transaction }) {
     >
       {transaction.transactionType == "INCOME" &&
         transaction.incomeType == "LOST" && (
-          <div className="absolute left-0 flex justify-center h-full top-[10px] w-full z-1 text-sm">
+          <div className="absolute left-0 flex justify-center h-full top-[4px] w-full z-1 text-sm">
             Buy a lottery to get the reward
           </div>
         )}
