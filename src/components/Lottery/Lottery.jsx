@@ -47,7 +47,7 @@ export default function Lottery({ lottery, bg }) {
           />
           <CopySection />
         </div>
-        {lottery.investModelStatus == "AVAILABLE" && (
+        {lottery.investModelStatus !== "BOUGHT" && (
           <LockedLottery lottery={lottery} />
         )}
       </div>
