@@ -96,7 +96,7 @@ export const buyLottery = async (token, lottery) => {
 //         mainBonusAmount: 0,
 //         lostRefIncomeAmount: 0,
 //         totalPrizeAmount: 0,
-//         investModelStatus: "AVAILABLE",
+//         investModelStatus: "BOUGHT",
 //         investModelLevel: "LEVEL_1",
 //         unlockDate: null,
 //         createdAt: "2024-07-24T17:58:46.874446",

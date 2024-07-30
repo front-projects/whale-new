@@ -19,6 +19,9 @@ export default function CopySection() {
           onClick={() => {
             WebApp.HapticFeedback.impactOccurred("medium");
             setCopied(true);
+            setTimeout(() => {
+              setCopied(false);
+            }, 5000);
           }}
         >
           <div className="copy text-[10px] p-2 py-3 max-w-[70%]">{url}</div>
