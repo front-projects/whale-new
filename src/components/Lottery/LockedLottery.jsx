@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
 
 import Button from "../UI/Button";
@@ -56,13 +57,29 @@ export default function LockedLottery({ lottery }) {
         className={`w-full h-full top-0 absolute z-3 h-full ${closeLock ? "invisible" : ""}`}
       >
         <div className="h-1/2 rounded-[23px] border-2 border-white border-b-[0px] bg-[#0F1511]/95 flex items-center justify-center flex-col pb-8 text-center text-[20px] px-8 max-h-660:px-2 max-h-660:text-[12px]">
-          {lottery.investModelStatus == "LOCKED"
+          {/* {lottery.investModelStatus == "LOCKED"
             ? "This lottery is not available for purchase"
-            : "TAKE PART IN THE LOTTERY AND MAKE A PROFIT"}
+            : "TAKE PART IN THE LOTTERY AND MAKE A PROFIT"} */}
+          <h2 className="history-plus-gradient text-[20px]">
+            {lottery.naming}
+          </h2>
+          <h4 className="history-plus-gradient">
+            Today in the lottery:{" "}
+            <span className="font-['Gilroy-900']">
+              {lottery.totalPrizeAmount
+                ? lottery.totalPrizeAmount.toFixed(0)
+                : 0}{" "}
+              USD
+            </span>
+          </h4>
         </div>
         <div className="h-1/2 rounded-[23px] border-2 border-white border-t-[0px] bg-[#0F1511]/95 pt-2 w-full  flex items-center justify-center px-6">
-          {lottery.investModelStatus !== "LOCKED" && (
+          {lottery.investModelStatus !== "LOCKED" ? (
             <Button onClick={openModal}>BUY {lottery.priceAmount} $</Button>
+          ) : (
+            <div className="text-center text-[12px]">
+              This lottery is not available for purchase
+            </div>
           )}
         </div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[50%] lock-icon w-[100px] h-[100px] max-h-660:w-[70px] max-h-660:h-[70px] flex items-center justify-center">

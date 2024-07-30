@@ -15,6 +15,7 @@ export default function Main() {
   const cards = useSelector((state) => state.user.info.investModels);
 
   const swiperRef = useRef(null);
+  // const [activeIndex, setActiveIndex] = useState(1);
 
   const handlePrev = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -29,12 +30,20 @@ export default function Main() {
   };
 
   const handleSlideChange = () => {
+    // console.log(e);
+    // setActiveIndex(e.realIndex + 1);
     WebApp.HapticFeedback.impactOccurred("medium");
   };
 
   return (
     <div className="h-full main-menu w-full relative">
       <BackgroundLottery />
+      {/* <div className="absolute right-1 border-2 top-1 z-2 bg-[#5d677a] p-3 rounded-[50%]">
+        {" "}
+        <span className="font-['Gilroy-900'] history-plus-gradient ">
+          {activeIndex}/{cards.length}
+        </span>
+      </div> */}
       <div
         className="absolute left-0 top-0 h-full z-1"
         style={{ width: "calc(100% - 60px)" }}

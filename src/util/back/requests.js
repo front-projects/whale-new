@@ -85,7 +85,7 @@ export const buyLottery = async (token, lottery) => {
 //     name: "Name Test1",
 //     username: "u1",
 //     reflink: null,
-//     balanceAmount: 0.01,
+//     balanceAmount: 100,
 //     investModels: [
 //       {
 //         id: 11,
@@ -135,9 +135,9 @@ export const buyLottery = async (token, lottery) => {
 //         priceAmount: 130,
 //         trendingStatus: "MEDIUM",
 //         partnerBonusAmount: 0,
-//         mainBonusAmount: 0,
+//         mainBonusAmount: 110,
 //         lostRefIncomeAmount: 0,
-//         totalPrizeAmount: 0,
+//         totalPrizeAmount: 11000,
 //         investModelStatus: "LOCKED",
 //         investModelLevel: "LEVEL_4",
 //         unlockDate: null,
