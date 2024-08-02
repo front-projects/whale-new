@@ -16,7 +16,7 @@ export default function TopUsers() {
 
   return (
     <div className="w-full h-full text-center">
-      <h1 className="text-[20px]">Top 100 users</h1>
+      <h1 className="text-[20px]">Top 10 users</h1>
       <div
         style={{ height: "calc(100% - 48px)" }}
         id="top-users"
