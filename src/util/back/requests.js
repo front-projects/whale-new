@@ -3,7 +3,7 @@ import axios from "axios";
 // const URL = "https://utilitywhalefederation.site:6034/"; // TEST
 const URL = "https://utilitywhalefederation.site:6044/"; // PROD
 // const URL = "http://localhost:6028/";
-export const PAYMENT_URL = "https://checkout.utilitywhalefederation.site";
+export const PAYMENT_URL = "https://checkout.utilitywhalefederation.site/";
 // export const PAYMENT_URL = "https://lottery-payment.vercel.app/";
 
 export const getToken = async ({ login, password }) => {
